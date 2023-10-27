@@ -34,6 +34,21 @@ public class RentalVehicleController {
                 .orElseThrow(() -> new ResourceNotFoundException("Vehicle with this id does not exist:" + id));
         return ResponseEntity.ok(rentalVehicle);
     }
+    @PutMapping("{id}")
+    public ResponseEntity<RentalVehicle> updateRentalVehicle(@PathVariable long id, @RequestBody RentalVehicle rentalVehicleDetails) {
+        RentalVehicle updateRentalVehicle = rentalVehicleRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("The vehicle with this id does not existL:" + id));
+        updateRentalVehicle.setVehicleType(rentalVehicleDetails.getVehicleType());
+        updateRentalVehicle.setYear(rentalVehicleDetails.getYear());
+        updateRentalVehicle.setMake(rentalVehicleDetails.getMake());
+        updateRentalVehicle.setModel(rentalVehicleDetails.getModel());
+        updateRentalVehicle.setMileage(rentalVehicleDetails.getMileage());
+        updateRentalVehicle.setColor(rentalVehicleDetails.getColor());
 
+        rentalVehicleRepository.save(updateRentalVehicle);
+        return  ResponseEntity.ok(updateRentalVehicle);
+
+
+    }
 
 }
