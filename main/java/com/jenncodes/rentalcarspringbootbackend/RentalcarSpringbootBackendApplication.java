@@ -1,5 +1,8 @@
 package com.jenncodes.rentalcarspringbootbackend;
 
+import com.jenncodes.rentalcarspringbootbackend.model.Billing;
+import com.jenncodes.rentalcarspringbootbackend.model.Customer;
+import com.jenncodes.rentalcarspringbootbackend.repository.BillingRepository;
 import com.jenncodes.rentalcarspringbootbackend.model.RentalVehicle;
 import com.jenncodes.rentalcarspringbootbackend.repository.RentalVehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -20,16 +20,14 @@ import lombok.Setter;
 @Table(name = "billing")
 public class Billing {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
-    @Column(name= "billing_id")
-    private String id;
+    @Column(name= "id")
+    private long id;
     @Column(name= "payment_type")
     private String paymentType;
     @Column(name= "late_fee")
     private double lateFee;
-    @Column(name= "booking_id")
-    private String bookingId;
     @Column(name= "total_amount")
     private double totalAmount;
     @Column(name= "bill_status")
