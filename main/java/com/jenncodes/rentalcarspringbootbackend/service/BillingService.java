@@ -1,4 +1,14 @@
 package com.jenncodes.rentalcarspringbootbackend.service;
 
-public class BillingService {
+import com.jenncodes.rentalcarspringbootbackend.model.Billing;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface BillingService {
+    List<Billing> getAllBillings();
+    Optional<Billing> getBillingById(Long billingId);
+    Billing createBilling(Billing billing);
+    Billing updateBilling(long billingId,Billing updatedBilling);
+    void deleteBilling(Long billingId);
 }
