@@ -51,5 +51,13 @@ public class RentalVehicleController {
 
 
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteRentalVehicle(@PathVariable long id) {
+        RentalVehicle rentalVehicle = rentalVehicleRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("rental vehicle does not exist with this id:" + id));
+        rentalVehicleRepository.delete(rentalVehicle);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 
 }

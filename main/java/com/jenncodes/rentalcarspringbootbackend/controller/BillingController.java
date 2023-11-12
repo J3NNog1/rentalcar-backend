@@ -4,6 +4,7 @@ import com.jenncodes.rentalcarspringbootbackend.exception.ResourceNotFoundExcept
 import com.jenncodes.rentalcarspringbootbackend.model.Billing;
 import com.jenncodes.rentalcarspringbootbackend.repository.BillingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -45,5 +46,11 @@ public class BillingController {
         billingRepository.save(updateBilling);
         return  ResponseEntity.ok(updateBilling);
     }
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteBilling(@PathVariable long id) {
+        Billing billing = billingRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("billing does not exist with this id:" + id));
+        billingRepository.delete(billing);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

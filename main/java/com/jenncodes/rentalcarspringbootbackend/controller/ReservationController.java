@@ -4,6 +4,7 @@ import com.jenncodes.rentalcarspringbootbackend.exception.ResourceNotFoundExcept
 import com.jenncodes.rentalcarspringbootbackend.model.Reservation;
 import com.jenncodes.rentalcarspringbootbackend.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -44,5 +45,12 @@ public class ReservationController {
 
         reservationRepository.save(updateReservationVehicle);
         return ResponseEntity.ok(updateReservationVehicle);
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteReservation(@PathVariable long id) {
+        Reservation reservation = reservationRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("reservation does not exist with this id:" + id));
+        reservationRepository.delete(reservation);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

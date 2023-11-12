@@ -48,5 +48,11 @@ public class CustomerController {
         customerRepository.save(updateCustomer);
         return  ResponseEntity.ok(updateCustomer);
     }
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteCustomer(@PathVariable long id) {
+        Customer customer = customerRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer does not exist with this id:" + id));
+        customerRepository.delete(customer);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
