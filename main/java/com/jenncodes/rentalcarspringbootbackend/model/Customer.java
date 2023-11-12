@@ -26,6 +26,8 @@ public class Customer {
     private int phoneNumber;
     @Column(name="drivers_license_number")
     private int driversLicenseNumber;
+    @OneToMany(mappedBy = "customer")
+    private List<Reservation> reservations;
 
 
 
