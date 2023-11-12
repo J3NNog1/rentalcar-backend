@@ -7,6 +7,7 @@ import com.jenncodes.rentalcarspringbootbackend.repository.RentalVehicleReposito
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class RentalVehicleController {
 
     //create post mapping for rental vehicle
     @PostMapping
-    public RentalVehicle createRentalVehicle(@RequestBody RentalVehicle rentalVehicle){
+    public RentalVehicle createRentalVehicle(@Validated @RequestBody RentalVehicle rentalVehicle){
         return rentalVehicleRepository.save(rentalVehicle);
     }
 

@@ -8,7 +8,9 @@ import com.jenncodes.rentalcarspringbootbackend.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
@@ -25,16 +27,16 @@ public class CustomerController {
 
     //create post mapping for rental vehicle
     @PostMapping
-    public Customer createCustomer(@RequestBody Customer customer){
+    public Customer createCustomer(@Validated @RequestBody Customer customer){
         return customerRepository.save(customer);
     }
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable long id){
         Customer customer = customerRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("customer with this id does not exist:" + id));
         return ResponseEntity.ok(customer);
     }
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Customer> updateCustomer(@PathVariable long id, @RequestBody Customer customerDetails) {
         Customer updateCustomer = customerRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("The customer with this id does not exist:" + id));

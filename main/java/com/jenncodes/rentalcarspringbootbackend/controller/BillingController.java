@@ -5,6 +5,7 @@ import com.jenncodes.rentalcarspringbootbackend.model.Billing;
 import com.jenncodes.rentalcarspringbootbackend.repository.BillingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class BillingController {
 
     //create post mapping for billing
     @PostMapping
-    public Billing createBilling(@RequestBody Billing billing){
+    public Billing createBilling(@Validated @RequestBody Billing billing){
         return billingRepository.save(billing);
     }
         @GetMapping("/{id}")
