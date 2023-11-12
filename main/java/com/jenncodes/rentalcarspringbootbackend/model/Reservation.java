@@ -1,11 +1,18 @@
-package com.jenncodes.reservation;
-
+package com.jenncodes.rentalcarspringbootbackend.model;
+import com.jenncodes.rentalcarspringbootbackend.model.Customer;
+import com.jenncodes.rentalcarspringbootbackend.model.RentalVehicle;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "reservation")
 public class Reservation {
