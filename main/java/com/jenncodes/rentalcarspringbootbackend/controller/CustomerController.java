@@ -29,17 +29,18 @@ public class CustomerController {
     @PostMapping
     public Customer createCustomer(@Validated @RequestBody Customer customer){
         return customerRepository.save(customer);
+
     }
     @GetMapping("/{id}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable long id){
         Customer customer = customerRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("customer with this id does not exist:" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Customer with id does not exist: " + id));
         return ResponseEntity.ok(customer);
     }
     @PutMapping("/{id}")
     public ResponseEntity<Customer> updateCustomer(@PathVariable long id, @RequestBody Customer customerDetails) {
         Customer updateCustomer = customerRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("The customer with this id does not exist:" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Customer with id does not exist: " + id));
         updateCustomer.setFirstName(customerDetails.getFirstName());
         updateCustomer.setLastName(customerDetails.getLastName());
         updateCustomer.setPhoneNumber(customerDetails.getPhoneNumber());
@@ -51,7 +52,7 @@ public class CustomerController {
     @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> deleteCustomer(@PathVariable long id) {
         Customer customer = customerRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Customer does not exist with this id:" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Customer with id does not exist: " + id));
         customerRepository.delete(customer);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
