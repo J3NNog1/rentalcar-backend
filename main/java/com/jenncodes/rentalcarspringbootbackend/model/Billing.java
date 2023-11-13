@@ -23,7 +23,7 @@ public class Billing {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     @Column(name= "id")
-    private long id;
+    private Long id;
     @Column(name= "payment_type")
     private String paymentType;
     @Column(name= "late_fee")

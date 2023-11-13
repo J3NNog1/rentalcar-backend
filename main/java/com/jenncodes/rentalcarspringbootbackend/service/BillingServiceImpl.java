@@ -32,12 +32,12 @@ public class BillingServiceImpl implements BillingService {
     }
 
     @Override
-    public Optional<Billing> getBillingById(Long id) {
+    public Optional<Billing> getBillingById(long id) {
         return billingRepository.findById(id);
     }
 
     @Override
-    public Billing updateBilling(Long id, Billing billingDetails) {
+    public Billing updateBilling(long id, Billing billingDetails) {
         Billing updateBilling = billingRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Billing with id does not exist: " + id));
 
@@ -51,7 +51,7 @@ public class BillingServiceImpl implements BillingService {
     }
 
     @Override
-    public void deleteBilling(Long id) {
+    public void deleteBilling(long id) {
         Billing billing = billingRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Billing with id does not exist: " + id));
 

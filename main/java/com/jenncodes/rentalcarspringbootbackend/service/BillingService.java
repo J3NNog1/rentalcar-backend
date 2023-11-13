@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public interface BillingService {
     List<Billing> getAllBillings();
-    Optional<Billing> getBillingById(Long billingId);
+    Optional<Billing> getBillingById(long billingId);
     Billing createBilling(Billing billing);
-    Billing updateBilling(Long billingId,Billing updatedBilling);
-    void deleteBilling(Long billingId);
+    Billing updateBilling(long billingId,Billing updatedBilling);
+    void deleteBilling(long billingId);
 }
