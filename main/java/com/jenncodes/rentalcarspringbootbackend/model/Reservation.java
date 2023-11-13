@@ -8,7 +8,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import jakarta.validation.constraints.NotNull;
-import java.util.Date;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -33,17 +37,20 @@ public class Reservation {
     @JoinColumn(name = "vehicle_id")
     private RentalVehicle vehicle;
 
+    @CreationTimestamp
     @NotNull(message = "Reservation date is required")
     @Column(name = "reservation_date")
-    private Date reservationDate;
+    private LocalDateTime reservationDate;
 
+    @CreationTimestamp
     @NotNull(message = "Start date is required")
     @Column(name = "start_date")
-    private Date startDate;
+    private LocalDateTime startDate;
 
+//    @UpdateTimestamp
     @NotNull(message = "End date is required")
     @Column(name = "end_date")
-    private Date endDate;
+    private LocalDateTime endDate;
 
 
 

@@ -34,14 +34,14 @@ public class Billing {
     private String paymentType;
 
     @Positive(message = "Amount must be greater than 0")
-    @Min(value = 1, message = "Year must be greater than or equal to 1")
-    @Max(value = 1000000, message = "Year must be less than or equal to 1000000")
+//    @Min(value = 1, message = "Year must be greater than or equal to 1")
+//    @Max(value = 1000000, message = "Year must be less than or equal to 1000000")
     @Column(name= "late_fee")
     private double lateFee;
 
     @Positive(message = "Total amount must be positive")
-    @Min(value = 1, message = "Year must be greater than or equal to 1")
-    @Max(value = 1000000, message = "Year must be less than or equal to 1000000")
+//    @Min(value = 1, message = "Year must be greater than or equal to 1")
+//    @Max(value = 1000000, message = "Year must be less than or equal to 1000000")
     @Column(name= "total_amount")
     private double totalAmount;
 

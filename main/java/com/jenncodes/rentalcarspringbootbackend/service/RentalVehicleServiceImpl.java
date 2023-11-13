@@ -45,7 +45,7 @@ public class RentalVehicleServiceImpl implements RentalVehicleService {
         updateRentalVehicle.setModel(rentalVehicleDetails.getModel());
         updateRentalVehicle.setMileage(rentalVehicleDetails.getMileage());
         updateRentalVehicle.setColor(rentalVehicleDetails.getColor());
-
+        updateRentalVehicle.setVin(rentalVehicleDetails.getVin());
         return rentalVehicleRepository.save(updateRentalVehicle);
     }
 

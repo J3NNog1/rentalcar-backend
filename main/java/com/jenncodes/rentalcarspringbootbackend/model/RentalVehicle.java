@@ -27,8 +27,8 @@ public class RentalVehicle {
     private String vehicleType;
 
     @NotBlank(message = "Year is required")
-    @Min(value = 1900, message = "Year must be greater than or equal to 1900")
-    @Max(value = 9999, message = "Year must be less than or equal to 9999")
+//    @Min(value = 1900, message = "Year must be greater than or equal to 1900")
+//    @Max(value = 9999, message = "Year must be less than or equal to 9999")
     @Column(name= "year")
     private String year;
 
@@ -45,8 +45,12 @@ public class RentalVehicle {
     private String color;
 
     @NotBlank(message = "Mileage is required")
-    @Min(value = 1, message = "Mileage must be greater than or equal to 1")
-    @Max(value = 1000000, message = "Mileage must be less than or equal to 1000000")    @Column(name= "mileage")
+//    @Min(value = 1, message = "Mileage must be greater than or equal to 1")
+//    @Max(value = 1000000, message = "Mileage must be less than or equal to 1000000")
+    @Column(name= "mileage")
     private String mileage;
+
+    @NotBlank(message = "Last 6 of VIN is required")
+    private String vin;
 
 }

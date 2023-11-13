@@ -27,7 +27,7 @@ public class BillingController {
     public Billing createBilling(@Validated @RequestBody Billing billing){
         return billingRepository.save(billing);
     }
-        @GetMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Billing> getBillingById(@PathVariable long id){
         Billing billing = billingRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("billing with this id does not exist:" + id));

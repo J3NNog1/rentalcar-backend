@@ -45,7 +45,7 @@ public class RentalVehicleController {
         updateRentalVehicle.setModel(rentalVehicleDetails.getModel());
         updateRentalVehicle.setMileage(rentalVehicleDetails.getMileage());
         updateRentalVehicle.setColor(rentalVehicleDetails.getColor());
-
+        updateRentalVehicle.setVin(rentalVehicleDetails.getVin());
         rentalVehicleRepository.save(updateRentalVehicle);
         return  ResponseEntity.ok(updateRentalVehicle);
 
