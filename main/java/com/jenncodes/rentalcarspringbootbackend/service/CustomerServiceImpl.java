@@ -25,7 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Optional<Customer> getCustomerById(long customerId) {
+    public Optional<Customer> getCustomerById(Long customerId) {
         return customerRepository.findById(customerId);
     }
 
@@ -35,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer updateCustomer(long customerId, Customer updatedCustomer) {
+    public Customer updateCustomer(Long customerId, Customer updatedCustomer) {
         Customer existingCustomer = customerRepository.findById(customerId)
                 .orElseThrow(() -> new ResourceNotFoundException("Customer with id not found: " + customerId));
 
@@ -48,7 +48,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void deleteCustomer(long customerId) {
+    public void deleteCustomer(Long customerId) {
         if (customerRepository.existsById(customerId)) {
             customerRepository.deleteById(customerId);
         } else {

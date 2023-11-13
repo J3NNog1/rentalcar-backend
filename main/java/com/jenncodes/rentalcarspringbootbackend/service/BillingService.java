@@ -9,6 +9,6 @@ public interface BillingService {
     List<Billing> getAllBillings();
     Optional<Billing> getBillingById(Long billingId);
     Billing createBilling(Billing billing);
-    Billing updateBilling(long billingId,Billing updatedBilling);
+    Billing updateBilling(Long billingId,Billing updatedBilling);
     void deleteBilling(Long billingId);
 }

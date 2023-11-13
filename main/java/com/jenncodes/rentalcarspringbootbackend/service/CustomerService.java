@@ -9,11 +9,11 @@ public interface CustomerService {
 
     List<Customer> getAllCustomers();
 
-    Optional<Customer> getCustomerById(long customerId);
+    Optional<Customer> getCustomerById(Long customerId);
 
     Customer createCustomer(Customer customer);
 
-    Customer updateCustomer(long customerId, Customer updatedCustomer);
+    Customer updateCustomer(Long customerId, Customer updatedCustomer);
 
-    void deleteCustomer(long customerId);
+    void deleteCustomer(Long customerId);
 }
